@@ -12,7 +12,7 @@ const getAllTodo = async (req, res) => {
 
 const getTodoById = async (req, res) => {
   try {
-    const { todo_id } = req.params;
+    const todo_id = req.params.id;
     const todo = await pool.query(queries.getTodoById, [todo_id]);
     res.json(todo.rows[0]);
   } catch (error) {
@@ -32,7 +32,7 @@ const addTodo = async (req, res) => {
 
 const updateTodo = async (req, res) => {
   try {
-    const { todo_id } = req.params;
+    const todo_id = req.params.id;
     const { description } = req.body;
     const updateTodo = await pool.query(queries.updateTodo, [
       description,
@@ -46,7 +46,7 @@ const updateTodo = async (req, res) => {
 
 const deleteTodo = async (req, res) => {
   try {
-    const { todo_id } = req.params;
+    const todo_id = req.params.id;
     const deleteTodo = await pool.query(queries.deleteTodo, [todo_id]);
     res.send("todo is deleted");
   } catch (error) {
