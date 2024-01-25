@@ -4,8 +4,6 @@ const cors = require("cors");
 const PORT = 5000;
 const todoRoutes = require("./routes");
 
-//const { Pool } = require("pg");
-
 app.use(cors());
 app.use(express.json());
 
